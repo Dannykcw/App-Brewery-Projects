@@ -1,0 +1,57 @@
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 50px 50px 0 50px;
+  background-color: #faf9f6;
+  display: flex;
+  flex-direction: column;
+  min-height: 95vh;
+}
+.main {
+  flex: 1;
+}
+
+h1 {
+  font-size: 5rem;
+}
+/* i.e. creative selector in solution, I did it becuase there is only one span in this particular, but this is not good practice for maintainablity. When you want to apply a style to one element only, id would be the best.*/
+span {
+  color: #191970;
+}
+.card {
+  width: 45%
+}
+
+.left {
+  float: left;
+  margin-right: 10%;
+}
+
+.right {
+  float: right;
+}
+
+.tile-image {
+  float: left;
+  height: 200px;
+  margin-right: 50px;
+}
+
+footer {
+  clear: both;
+  text-align: right;
+  color: midnightblue;
+}
+@media (max-width: 768px) {
+  .card {
+	width: 100%;
+	display: block;
+	margin-bottom: 30px;
+	text-align: justify;
+}
+.card img {
+  /* display: inline; */
+  width: 100%;
+  object-fit: cover;
+}
+}
+
