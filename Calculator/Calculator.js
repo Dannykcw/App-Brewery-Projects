@@ -14,4 +14,4 @@ function mutiply (num1, num2) {
 function divide (num1, num2) {
     return num1 / num2
 }
-console.log(calculate(10, 15, mutiply));
+console.log(calculate(10, 15, mutiply))
