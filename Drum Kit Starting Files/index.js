@@ -1,4 +1,5 @@
 // The below means that even if you click outside of the buttons (since it is outside of the divs), the eventlistener is still triggered.
+
 // document.querySelector(".set").addEventListener("click", () => {
 //     alert("I was clicked");
 // });
@@ -13,6 +14,11 @@
 // function handleClick() {
 //     alert("I was clicked!");
 // }
+
+function eventHandler (classKey) {
+    animationHandler(classKey)
+    audioHandler(classKey)
+}
 
 function audioHandler (classKey) {
     let audio
@@ -49,7 +55,14 @@ function audioHandler (classKey) {
             console.dir(classKey)
             break
     }
-    return audio
+}
+
+function animationHandler (currentKey) {
+    const activeBtn = document.querySelector(`.${currentKey}`)
+    activeBtn.classList.add('pressed')
+    setTimeout(() => {
+        activeBtn.classList.remove('pressed')
+    }, 100)
 }
 
 // This uses a conditional and targets butttons inside a certain div only. See https://javascript.info/bubbling-and-capturing
@@ -61,11 +74,11 @@ wrapper.addEventListener('click', (event) => {
     if (isButton) {
         const btnInnerHTML = event.target.innerHTML
         console.dir(btnInnerHTML)
-        audioHandler(btnInnerHTML)
+        eventHandler(btnInnerHTML)
     }
 })
 
 document.addEventListener('keydown', (event) => {
     console.log(`The ${event.key} was pressed.`)
-    audioHandler(event.key)
+    eventHandler(event.key)
 })
