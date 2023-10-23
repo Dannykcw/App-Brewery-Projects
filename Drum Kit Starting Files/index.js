@@ -15,6 +15,24 @@
 //     alert("I was clicked!");
 // }
 
+// This uses a conditional and targets butttons inside a certain div only. See https://javascript.info/bubbling-and-capturing
+
+const wrapper = document.querySelector('.set')
+
+wrapper.addEventListener('click', (event) => {
+    const isButton = event.target.nodeName === 'BUTTON'
+    if (isButton) {
+        const btnInnerHTML = event.target.innerHTML
+        console.dir(btnInnerHTML)
+        eventHandler(btnInnerHTML)
+    }
+})
+
+document.addEventListener('keydown', (event) => {
+    console.log(`The ${event.key} was pressed.`)
+    eventHandler(event.key)
+})
+
 function eventHandler (classKey) {
     animationHandler(classKey)
     audioHandler(classKey)
@@ -64,21 +82,3 @@ function animationHandler (currentKey) {
         activeBtn.classList.remove('pressed')
     }, 100)
 }
-
-// This uses a conditional and targets butttons inside a certain div only. See https://javascript.info/bubbling-and-capturing
-
-const wrapper = document.querySelector('.set')
-
-wrapper.addEventListener('click', (event) => {
-    const isButton = event.target.nodeName === 'BUTTON'
-    if (isButton) {
-        const btnInnerHTML = event.target.innerHTML
-        console.dir(btnInnerHTML)
-        eventHandler(btnInnerHTML)
-    }
-})
-
-document.addEventListener('keydown', (event) => {
-    console.log(`The ${event.key} was pressed.`)
-    eventHandler(event.key)
-})
