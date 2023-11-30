@@ -7,13 +7,13 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const app = express()
 const port = 3000
 
-let urlencodedParser = bodyParser.urlencoded({extended: true})
+const urlencodedParser = bodyParser.urlencoded({ extended: true } )
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html')
 })
 
-app.post('/submit', urlencodedParser ,(req, res) => {
+app.post('/submit', urlencodedParser, (req, res) => {
   console.log(req.body)
 })
 
